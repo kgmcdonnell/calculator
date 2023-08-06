@@ -3,4 +3,104 @@
   box-sizing: border-box;
 }
 
+/* styling calculator box */
+.calc-box {
+  width: 400px;
+  border: 1px solid black;
+}
 
+/* using grid to set up layout */
+.clear {
+  grid-area: clear;
+}
+.back{
+  grid-area: back;
+}
+.divide {
+  grid-area: divide;
+}
+.seven {
+  grid-area: seven;
+}
+.eight{
+  grid-area: eight;
+}
+.nine {
+  grid-area: nine;
+}
+.multiply{
+  grid-area: multiply;
+}
+.four {
+  grid-area: four;
+}
+.five {
+  grid-area: five;
+}
+.six{
+  grid-area: six;
+}
+.minus{
+  grid-area: minus;
+}
+.one{
+  grid-area: one;
+}
+.two{
+  grid-area: two;
+}
+.three{
+  grid-area: three;
+}
+.add{
+  grid-area: add;
+}
+.zero{
+  grid-area: zero;
+}
+.equal{
+  grid-area: equal;
+}
+
+.calc-grid {
+  display:grid;
+  grid-template-areas:
+  "clear clear back divide"
+  "seven eight nine multiply"
+  "four five six minus"
+  "one two three add"
+  "zero zero zero equal"
+}
+
+/* styling screen */
+.calc-screen {
+  height: 80px;
+  font-size: 30px;
+  background-color: black;
+  color:white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+}
+
+/* styling btn */
+.btn {
+  background-color: rgb(216,217,219);
+  margin: 0;
+  height: 100px;
+  font-size: 30px;
+  border: 1px solid black;
+}
+.btn.btn-orange{
+  background-color: rgba(223,151,76);
+  color: white;
+}
+
+.btn:hover{
+  background-color: rgb(231, 229, 229);
+}
+
+.btn.btn-orange:hover {
+  background-color: rgb(248, 189, 125);
+}
