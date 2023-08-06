@@ -1,6 +1,7 @@
 /* includes the padding and border in the element's total width and height */
 * {
   box-sizing: border-box;
+  margin:0;
 }
 
 /* styling calculator box */
