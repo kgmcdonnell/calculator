@@ -27,6 +27,12 @@ operationButtons.forEach((button) => {
       operation = "minus";
     } else if (button.classList.contains("equal")) {
       result(storage, operation);
+    } else if (button.classList.contains("clear")) {
+      storage = [];
+      answer = 0;
+      screen.innerText = 0;
+    } else if (button.classList.contains("back")) {
+      storage.splice(-1);
     }
   });
 });
@@ -57,6 +63,14 @@ function result(storage, operation) {
         answer = parseInt(storage[i]);
       } else {
         answer = answer + parseInt(storage[i]);
+      }
+    }
+  } else if (operation === "subtract") {
+    for (let i = 0; i < storage[i]; i++) {
+      if (i === 0) {
+        answer = parseInt(storage[i]);
+      } else {
+        answer = answer - storage[i];
       }
     }
   }

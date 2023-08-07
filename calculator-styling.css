@@ -98,10 +98,19 @@
   color: white;
 }
 
+.btn.btn-operation.btn-operation-gray{
+  background-color: rgb(216,217,219);
+  color: black;
+}
+
 .btn:hover{
   background-color: rgb(231, 229, 229);
 }
 
 .btn.btn-operation:hover {
   background-color: rgb(248, 189, 125);
+}
+
+.btn.btn-operation.btn-operation-gray:hover {
+  background-color: rgb(231, 229, 229);
 }
