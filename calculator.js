@@ -51,6 +51,14 @@ function result(storage, operation) {
         answer = answer / storage[i];
       }
     }
+  } else if (operation === "add") {
+    for (let i = 0; i < storage.length; i++) {
+      if (i === 0) {
+        answer = parseInt(storage[i]);
+      } else {
+        answer = answer + parseInt(storage[i]);
+      }
+    }
   }
   console.log(answer);
   screen.innerText = answer;
