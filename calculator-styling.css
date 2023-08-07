@@ -93,7 +93,7 @@
   font-size: 30px;
   border: 1px solid black;
 }
-.btn.btn-orange{
+.btn.btn-operation{
   background-color: rgba(223,151,76);
   color: white;
 }
@@ -102,6 +102,6 @@
   background-color: rgb(231, 229, 229);
 }
 
-.btn.btn-orange:hover {
+.btn.btn-operation:hover {
   background-color: rgb(248, 189, 125);
 }
