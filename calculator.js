@@ -1,6 +1,7 @@
 // declaring variables
 let storage = [];
 let operation;
+let answer;
 let screen = document.querySelector(".calc-screen");
 
 // adding an event listener for each numbered button
@@ -9,7 +10,6 @@ numberedButtons.forEach((button) => {
   button.addEventListener("click", function (event) {
     screen.innerText = button.innerText;
     storage.push(screen.innerText);
-    console.log(storage);
   });
 });
 
@@ -17,7 +17,6 @@ numberedButtons.forEach((button) => {
 const operationButtons = document.querySelectorAll(".btn-operation");
 operationButtons.forEach((button) => {
   button.addEventListener("click", function (event) {
-    console.log(button);
     if (button.classList.contains("multiply")) {
       operation = "multiply";
     } else if (button.classList.contains("divide")) {
@@ -37,11 +36,22 @@ function result(storage, operation) {
   console.log(storage);
   console.log(operation);
   if (operation === "multiply") {
-    let answer = 1;
     for (let i = 0; i < storage.length; i++) {
-      answer = answer * storage[i];
+      if (i === 0) {
+        answer = storage[i];
+      } else {
+        answer = answer * storage[i];
+      }
     }
-    console.log(answer);
-    screen.innerText = answer;
+  } else if (operation === "divide") {
+    for (let i = 0; i < storage.length; i++) {
+      if (i === 0) {
+        answer = storage[i];
+      } else {
+        answer = answer / storage[i];
+      }
+    }
   }
+  console.log(answer);
+  screen.innerText = answer;
 }
