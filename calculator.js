@@ -1,6 +1,6 @@
 // declaring variables
 let storage = [];
-let operation;
+let operation = [];
 let answer;
 let screen = document.querySelector(".calc-screen");
 
@@ -18,17 +18,18 @@ const operationButtons = document.querySelectorAll(".btn-operation");
 operationButtons.forEach((button) => {
   button.addEventListener("click", function (event) {
     if (button.classList.contains("multiply")) {
-      operation = "multiply";
+      operation.push("multiply");
     } else if (button.classList.contains("divide")) {
-      operation = "divide";
+      operation.push("divide");
     } else if (button.classList.contains("add")) {
-      operation = "add";
+      operation.push("add");
     } else if (button.classList.contains("minus")) {
-      operation = "minus";
+      operation.push("minus");
     } else if (button.classList.contains("equal")) {
       result(storage, operation);
     } else if (button.classList.contains("clear")) {
       storage = [];
+      operation = [];
       answer = 0;
       screen.innerText = 0;
     } else if (button.classList.contains("back")) {
@@ -39,43 +40,22 @@ operationButtons.forEach((button) => {
 });
 
 function result(storage, operation) {
-  console.log("this is my result function");
+  answer = parseFloat(storage[0]);
   console.log(storage);
-  console.log(operation);
-  if (operation === "multiply") {
-    for (let i = 0; i < storage.length; i++) {
-      if (i === 0) {
-        answer = storage[i];
-      } else {
-        answer = answer * storage[i];
-      }
-    }
-  } else if (operation === "divide") {
-    for (let i = 0; i < storage.length; i++) {
-      if (i === 0) {
-        answer = storage[i];
-      } else {
-        answer = answer / storage[i];
-      }
-    }
-  } else if (operation === "add") {
-    for (let i = 0; i < storage.length; i++) {
-      if (i === 0) {
-        answer = parseInt(storage[i]);
-      } else {
-        answer = answer + parseInt(storage[i]);
-      }
-    }
-  } else if (operation === "minus") {
-    for (let i = 0; i < storage[i]; i++) {
-      console.log(i);
-      if (i === 0) {
-        answer = parseInt(storage[i]);
-      } else {
-        answer = answer - parseInt(storage[i]);
-      }
+
+  for (let i = 1; i < storage.length; i++) {
+    if (operation[0] === "multiply") {
+      answer = answer * parseFloat(storage[i]);
+    } else if (operation[0] === "divide") {
+      answer = answer / parseFloat(storage[i]);
+    } else if (operation[0] === "add") {
+      answer = answer + parseFloat(storage[i]);
+    } else if (operation[0] === "minus") {
+      answer = answer - parseFloat(storage[i]);
     }
   }
-  console.log(answer);
+  operation.splice(0);
+  storage.splice(0);
+  storage.push(answer);
   screen.innerText = answer;
 }
