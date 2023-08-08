@@ -33,6 +33,7 @@ operationButtons.forEach((button) => {
       screen.innerText = 0;
     } else if (button.classList.contains("back")) {
       storage.splice(-1);
+      screen.innerText = 0;
     }
   });
 });
