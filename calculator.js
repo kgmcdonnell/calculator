@@ -28,6 +28,7 @@ operationButtons.forEach((button) => {
     } else if (button.classList.contains("equal")) {
       result(storage, operation);
     } else if (button.classList.contains("clear")) {
+      // clearing variables
       storage = [];
       operation = [];
       answer = 0;
@@ -40,12 +41,10 @@ operationButtons.forEach((button) => {
 });
 
 function result(storage, operation) {
-  console.log("START");
-  console.log(storage);
-  console.log(operation);
   answer = parseFloat(storage[0]);
+  // Remove storage value after assigned to answer
   storage.splice(0, 1);
-  // loop thru operations, take answer and first number and perform first operation, remove number and operation
+  // If an operation exists, perform first operation on answer and first number in storage
   while (operation[0]) {
     if (operation[0] === "multiply") {
       answer = answer * parseFloat(storage[0]);
@@ -56,12 +55,12 @@ function result(storage, operation) {
     } else if (operation[0] === "minus") {
       answer = answer - parseFloat(storage[0]);
     }
-
+    // remove first operation from array
     operation.splice(0, 1);
+    // remove first number from storage array
     storage.splice(0, 1);
     screen.innerText = answer;
   }
-
-  // this would be after all operations are complete
+  // Save the answer in storage
   storage.push(answer);
 }
