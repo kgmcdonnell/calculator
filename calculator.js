@@ -40,22 +40,28 @@ operationButtons.forEach((button) => {
 });
 
 function result(storage, operation) {
-  answer = parseFloat(storage[0]);
+  console.log("START");
   console.log(storage);
-
-  for (let i = 1; i < storage.length; i++) {
+  console.log(operation);
+  answer = parseFloat(storage[0]);
+  storage.splice(0, 1);
+  // loop thru operations, take answer and first number and perform first operation, remove number and operation
+  while (operation[0]) {
     if (operation[0] === "multiply") {
-      answer = answer * parseFloat(storage[i]);
+      answer = answer * parseFloat(storage[0]);
     } else if (operation[0] === "divide") {
-      answer = answer / parseFloat(storage[i]);
+      answer = answer / parseFloat(storage[0]);
     } else if (operation[0] === "add") {
-      answer = answer + parseFloat(storage[i]);
+      answer = answer + parseFloat(storage[0]);
     } else if (operation[0] === "minus") {
-      answer = answer - parseFloat(storage[i]);
+      answer = answer - parseFloat(storage[0]);
     }
+
+    operation.splice(0, 1);
+    storage.splice(0, 1);
+    screen.innerText = answer;
   }
-  operation.splice(0);
-  storage.splice(0);
+
+  // this would be after all operations are complete
   storage.push(answer);
-  screen.innerText = answer;
 }
