@@ -65,12 +65,13 @@ function result(storage, operation) {
         answer = answer + parseInt(storage[i]);
       }
     }
-  } else if (operation === "subtract") {
+  } else if (operation === "minus") {
     for (let i = 0; i < storage[i]; i++) {
+      console.log(i);
       if (i === 0) {
         answer = parseInt(storage[i]);
       } else {
-        answer = answer - storage[i];
+        answer = answer - parseInt(storage[i]);
       }
     }
   }
